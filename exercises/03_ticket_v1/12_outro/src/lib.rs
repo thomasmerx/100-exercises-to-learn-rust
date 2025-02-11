@@ -45,6 +45,22 @@ impl Order {
         &self.unit_price
     }
 
+    pub fn set_product_name(&mut self, product_name: String) {
+        self.product_name = product_name;
+    }
+
+    pub fn set_quantity(&mut self, quantity: u64) {
+        self.quantity = quantity;
+    }
+
+    pub fn set_unit_price(&mut self, unit_price: u64) {
+        self.unit_price = unit_price;
+    }
+
+    pub fn total(&self) -> u64 {
+        self.unit_price*self.quantity
+    }
+
     fn validate_name(name: &String) {
         if name.is_empty() || name.len() > 300 {
             panic!("Invalid String");
